@@ -102,4 +102,4 @@ document.addEventListener("DOMContentLoaded", () => {
 let a = "0";
 let b = null;
 let op = null;
-// updateDisplay(a);  // Initiate the display
+updateDisplay(a);  // Initiate the display
