@@ -15,9 +15,9 @@ function updateDigit(e) {
         updateDisplay(a);
     } else {
         // Display can display up to 10 digits
-        if (b.length === 10) return;
+        if (b !== null && b.length === 10) return;
 
-        if (b === "0") b = number;
+        if (b === null || b === "0") b = number;
         else b += number;
         updateDisplay(b);
     }
@@ -26,11 +26,8 @@ function updateDigit(e) {
 function operate(e) {
     let operation = e.target.getAttribute("data-key");
 
-    // Check if operation is equals and the current operation is null
-    if (operation === "Enter" && op === null) return;
-
     // Check if operation is already declared
-    if (op === null || b === "0") {
+    if (op === null || b === null) {
         op = operation;
         return;
     }
@@ -56,7 +53,7 @@ function operate(e) {
     }
 
     a = a.toString();
-    b = "0";
+    b = null;
     if (operation === "Enter") op = null;
     else op = operation;
     updateDisplay(a);
@@ -64,7 +61,7 @@ function operate(e) {
 
 function clear(e) {
     a = "0";
-    b = "0";
+    b = null;
     op = null;
     updateDisplay(a);
 }
@@ -84,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 let a = "0";
-let b = "0";
+let b = null;
+let operatorLock = false;
 let op = null;
 updateDisplay(a);  // Initiate the display

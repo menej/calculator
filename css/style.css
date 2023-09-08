@@ -65,6 +65,10 @@ body {
     background-color: #d87b05;
 }
 
+.bg-active-orange {
+    background-color: orange;
+}
+
 .bg-red {
     background-color: darkred;
 }
