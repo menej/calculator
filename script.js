@@ -58,6 +58,7 @@ function operate(e) {
         default:
             console.error("Executed operation does not exists.");
     }
+    a = parseFloat(a.toFixed(5));
 
     a = a.toString();
     if (operation === "Enter") {
@@ -101,4 +102,4 @@ document.addEventListener("DOMContentLoaded", () => {
 let a = "0";
 let b = null;
 let op = null;
-updateDisplay(a);  // Initiate the display
+// updateDisplay(a);  // Initiate the display
