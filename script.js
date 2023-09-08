@@ -54,8 +54,10 @@ function operate(e) {
     }
 
     a = a.toString();
-    b = null;
-    if (operation === "Enter") op = null;
+    if (operation === "Enter") {
+        op = null;
+        b = null;
+    }
     else op = operation;
     updateDisplay(a);
 }
@@ -83,6 +85,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let a = "0";
 let b = null;
-let operatorLock = false;
 let op = null;
 updateDisplay(a);  // Initiate the display
