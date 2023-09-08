@@ -46,7 +46,8 @@ function operate(e) {
             a *= b;
             break;
         case "/":
-            a /= b;
+            if (b === 0) a = "Error";
+            else a /= b;
             break;
         default:
             console.error("Executed operation does not exists.");
