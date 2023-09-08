@@ -52,7 +52,7 @@ function operate(e) {
             a /= b;
             break;
         default:
-            console.error("Executed does not exists.");
+            console.error("Executed operation does not exists.");
     }
 
     a = a.toString();
