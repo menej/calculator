@@ -64,8 +64,9 @@ function operate(e) {
     if (operation === "Enter") {
         op = null;
         b = null;
+    } else {
+        op = operation;
     }
-    else op = operation;
     updateDisplay(a);
 }
 
@@ -85,6 +86,18 @@ function clear(e) {
     updateDisplay(a);
 }
 
+function addFraction() {
+    let displayText = document.querySelector('.display').textContent;
+    // Note to self: this is badly implemented, should have used a boolean variable
+    if (a === displayText && !a.includes(".")) {
+        a += ".";
+        updateDisplay(a);
+    } else if (b === displayText && !b.includes(".")) {
+        b += ".";
+        updateDisplay(b);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     let clearButton = document.querySelector('button[data-key="Backspace"]');
     clearButton.addEventListener("click", clear);
@@ -96,6 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let operatorButtons = document.querySelectorAll('.operator');
     operatorButtons.forEach((button) => button.addEventListener("click", operate))
+
+    let fractionButton = document.querySelector('button[data-key="."]');
+    fractionButton.addEventListener("click", addFraction);
 });
 
 
