@@ -61,8 +61,24 @@ body {
     background-color: gray;
 }
 
+.bg-gray:hover {
+    background-color: darkgray;
+}
+
+.bg-gray:active {
+    background-color: dimgray;
+}
+
 .bg-orange {
     background-color: #d87b05;
+}
+
+.bg-orange:hover {
+    background-color: orange
+}
+
+.bg-orange:active {
+    background-color: #9d5803;
 }
 
 .bg-active-orange {
@@ -70,31 +86,34 @@ body {
 }
 
 .bg-red {
-    background-color: darkred;
+    background-color: #cd1414;
 }
 
-.bg-white {
-    background-color: #ebebeb;
-}
-
-.bg-gray:active {
-    background-color: darkgray;
-}
-
-.bg-orange:active {
-    background-color: orange;
+.bg-red:hover {
+    background-color: red;
 }
 
 .bg-red:active {
     background-color: #b40000;
 }
 
-.bg-white:active {
-    background-color: white;
+.bg-white {
+    background-color: #ebebeb;
 }
 
+.bg-white:hover {
+    background-color: white;
+
+}
+
+.bg-white:active {
+    background-color: #bcb7b7;
+}
 
 button[data-key="0"] {
     width: 200px;
 }
 
+.row > button {
+    cursor: pointer;
+}
