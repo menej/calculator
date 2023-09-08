@@ -30,10 +30,36 @@ function operate(e) {
     if (operation === "Enter" && op === null) return;
 
     // Check if operation is already declared
-    if (op === null) {
+    if (op === null || b === "0") {
         op = operation;
         return;
     }
+
+    // Op is declared, do the operation
+    a = +a;
+    b = +b;
+    switch (op) {
+        case "+":
+            a += b;
+            break;
+        case "-":
+            a -= b;
+            break;
+        case "*":
+            a *= b;
+            break;
+        case "/":
+            a /= b;
+            break;
+        default:
+            console.error("Executed does not exists.");
+    }
+
+    a = a.toString();
+    b = "0";
+    if (operation === "Enter") op = null;
+    else op = operation;
+    updateDisplay(a);
 }
 
 function clear(e) {
