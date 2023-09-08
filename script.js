@@ -55,6 +55,9 @@ function operate(e) {
             if (b === 0) a = "Error";
             else a /= b;
             break;
+        case "%":
+            a %= b;
+            break;
         default:
             console.error("Executed operation does not exists.");
     }
@@ -98,6 +101,20 @@ function addFraction() {
     }
 }
 
+function changeSign() {
+    let displayText = document.querySelector('.display').textContent;
+    // Note to self: this is badly implemented, should have used a boolean variable
+    if (a === displayText ) {
+        let number = +a;
+        a = (number * -1).toString();
+        updateDisplay(a);
+    } else if (b === displayText) {
+        let number = +b;
+        b = (number * -1).toString();
+        updateDisplay(b);
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     let clearButton = document.querySelector('button[data-key="Backspace"]');
     clearButton.addEventListener("click", clear);
@@ -112,6 +129,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let fractionButton = document.querySelector('button[data-key="."]');
     fractionButton.addEventListener("click", addFraction);
+
+    let polarityButton = document.querySelector('button[data-key="+/-"]');
+    polarityButton.addEventListener("click", changeSign);
 });
 
 
