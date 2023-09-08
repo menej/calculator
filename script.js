@@ -21,6 +21,8 @@ function updateDigit(e) {
         else b += number;
         updateDisplay(b);
     }
+
+    unsetActive()
 }
 
 function operate(e) {
@@ -29,6 +31,10 @@ function operate(e) {
     // Check if operation is already declared
     if (op === null || b === null) {
         op = operation;
+
+        unsetActive()
+        if (operation !== 'Enter') setActive(e.target);
+
         return;
     }
 
@@ -60,6 +66,15 @@ function operate(e) {
     }
     else op = operation;
     updateDisplay(a);
+}
+
+function unsetActive() {
+    let activeOperation = document.querySelector('.bg-active-orange');
+    if (activeOperation !== null) activeOperation.classList.remove('bg-active-orange');
+}
+
+function setActive(button) {
+    button.classList.add('bg-active-orange')
 }
 
 function clear(e) {
