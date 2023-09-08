@@ -28,13 +28,13 @@ function updateDigit(e) {
 function operate(e) {
     let operation = e.target.getAttribute("data-key");
 
-    // Check if operation is already declared
+    // Check if operation is already locked
     if (op === null || b === null) {
-        op = operation;
-
         unsetActive()
-        if (operation !== 'Enter') setActive(e.target);
-
+        if (operation !== 'Enter') {
+            setActive(e.target);
+            op = operation;
+        }
         return;
     }
 
